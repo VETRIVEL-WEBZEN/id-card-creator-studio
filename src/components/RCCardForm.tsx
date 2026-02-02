@@ -141,8 +141,6 @@ const RCCardForm = ({ data, onChange }: RCCardFormProps) => {
               id="address"
               value={data.address}
               onChange={(e) => handleChange("address", e.target.value)}
-              rows={10}
-              cols={50}
               placeholder="123, Street Name, City - 600001"
               className="h-8 text-sm"
             />
