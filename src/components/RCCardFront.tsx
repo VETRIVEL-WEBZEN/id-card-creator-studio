@@ -33,7 +33,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Chassis Number - below "Chassis Number" label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "95px", left: "52px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "95px", left: "90px" }}>
         {data.chassisNumber}
       </div>
       
@@ -43,12 +43,12 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Engine Number - below "Engine / Motor Number" label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "122px", left: "52px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "122px", left: "90px" }}>
         {data.engineNumber}
       </div>
       
       {/* Owner Name - below "Owner Name" label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "148px", left: "52px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "148px", left: "90px" }}>
         {data.ownerName}
       </div>
       
@@ -58,7 +58,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Son/Daughter/Wife of - same row as fuel, next to label */}
-      <div className="absolute text-[10px] font-semibold text-foreground" style={{ top: "167px", left: "52px", maxWidth: "180px" }}>
+      <div className="absolute text-[10px] font-semibold text-foreground" style={{ top: "167px", left: "90px", maxWidth: "180px" }}>
         {data.sonDaughterWifeOf}
       </div>
       
@@ -68,7 +68,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Address - below "Address" label */}
-      <div className="absolute text-[10px] font-semibold text-foreground leading-tight" style={{ top: "195px", left: "52px", maxWidth: "220px" }}>
+      <div className="absolute text-[10px] font-semibold text-foreground leading-tight" style={{ top: "195px", left: "90px", maxWidth: "220px" }}>
         {data.address}
       </div>
       
