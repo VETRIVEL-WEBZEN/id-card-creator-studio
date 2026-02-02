@@ -63,7 +63,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Emission Norms - below "Emission Norms" label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "195px", left: "5px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "164px", left: "6px" }}>
         {data.emissionNorms}
       </div>
       
