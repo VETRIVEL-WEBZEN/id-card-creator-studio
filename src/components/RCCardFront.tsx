@@ -68,10 +68,10 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Address - below "Address" label */}
-      <div className="absolute text-[10px] font-semibold text-foreground leading-tight" style={{ top: "195px", left: "90px", maxWidth: "220px" }}>
+      <div className="absolute text-[8px] font-semibold text-foreground leading-tight" style={{ top: "195px", left: "90px", maxWidth: "220px" }}>
         {data.address}
       </div>
-      
+
       {/* Card Issue Date - vertical text on right edge */}
       <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "58px", right: "3px", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
         {data.cardIssueDate}
