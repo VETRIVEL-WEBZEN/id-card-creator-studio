@@ -70,6 +70,8 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       {/* Address - below "Address" label */}
       <div className="absolute text-[8px] font-bold text-foreground leading-tight" style={{ top: "176px", left: "92px", maxWidth: "220px" }}>
         {data.address}
+         rows={10}
+         cols={50}
       </div>
 
       {/* Card Issue Date - vertical text on right edge */}
