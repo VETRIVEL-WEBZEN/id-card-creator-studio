@@ -33,7 +33,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Chassis Number - below "Chassis Number" label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "72px", left: "90px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "74px", left: "92px" }}>
         {data.chassisNumber}
       </div>
       
