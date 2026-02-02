@@ -28,7 +28,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Regn. Validity - below "Regn. Validity" label */}
-      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "50px", left: "248px" }}>
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "50px", left: "258px" }}>
         {data.regnValidity}
       </div>
       
