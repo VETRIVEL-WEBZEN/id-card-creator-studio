@@ -23,12 +23,12 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Date of Regn - below "Date of Regn." label */}
-      <div className="absolute text-[11px] font-bold text-foreground" style={{ top: "62px", left: "152px" }}>
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "50px", left: "184px" }}>
         {data.dateOfRegn}
       </div>
       
       {/* Regn. Validity - below "Regn. Validity" label */}
-      <div className="absolute text-[11px] font-bold text-foreground" style={{ top: "62px", left: "248px" }}>
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "50px", left: "248px" }}>
         {data.regnValidity}
       </div>
       
@@ -38,7 +38,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Owner Serial - next to "Serial" on right side */}
-      <div className="absolute text-[14px] font-bold text-foreground" style={{ top: "92px", left: "272px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "92px", left: "272px" }}>
         {data.ownerSerial}
       </div>
       
@@ -48,7 +48,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Owner Name - below "Owner Name" label */}
-      <div className="absolute text-[11px] font-bold text-foreground" style={{ top: "148px", left: "52px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "148px", left: "52px" }}>
         {data.ownerName}
       </div>
       
@@ -58,22 +58,22 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Son/Daughter/Wife of - same row as fuel, next to label */}
-      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "167px", left: "52px", maxWidth: "180px" }}>
+      <div className="absolute text-[10px] font-semibold text-foreground" style={{ top: "167px", left: "52px", maxWidth: "180px" }}>
         {data.sonDaughterWifeOf}
       </div>
       
       {/* Emission Norms - below "Emission Norms" label */}
-      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "195px", left: "5px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "195px", left: "5px" }}>
         {data.emissionNorms}
       </div>
       
       {/* Address - below "Address" label */}
-      <div className="absolute text-[8px] font-semibold text-foreground leading-tight" style={{ top: "195px", left: "52px", maxWidth: "220px" }}>
+      <div className="absolute text-[10px] font-semibold text-foreground leading-tight" style={{ top: "195px", left: "52px", maxWidth: "220px" }}>
         {data.address}
       </div>
       
       {/* Card Issue Date - vertical text on right edge */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "58px", right: "3px", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "58px", right: "3px", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
         {data.cardIssueDate}
       </div>
     </div>
