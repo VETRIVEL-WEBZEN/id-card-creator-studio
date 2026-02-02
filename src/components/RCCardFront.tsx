@@ -58,7 +58,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Son/Daughter/Wife of - same row as fuel, next to label */}
-      <div className="absolute text-[10px] font-semibold text-foreground" style={{ top: "167px", left: "90px", maxWidth: "180px" }}>
+      <div className="absolute text-[10px] font-semibold text-foreground" style={{ top: "147px", left: "92px", maxWidth: "180px" }}>
         {data.sonDaughterWifeOf}
       </div>
       
