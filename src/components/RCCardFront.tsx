@@ -17,63 +17,63 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
         backgroundPosition: "center",
       }}
     >
-      {/* Regn. No */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "52px", left: "120px" }}>
+      {/* Regn. No - below "Regn. No" label */}
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "60px", left: "68px" }}>
         {data.regnNo}
       </div>
       
-      {/* Date of Regn */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "52px", left: "195px" }}>
+      {/* Date of Regn - below "Date of Regn." label */}
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "60px", left: "170px" }}>
         {data.dateOfRegn}
       </div>
       
-      {/* Regn. Validity */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "52px", left: "270px" }}>
+      {/* Regn. Validity - below "Regn. Validity" label */}
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "60px", left: "260px" }}>
         {data.regnValidity}
       </div>
       
-      {/* Chassis Number */}
-      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "72px", left: "120px" }}>
+      {/* Chassis Number - below "Chassis Number" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "92px", left: "68px" }}>
         {data.chassisNumber}
       </div>
       
-      {/* Owner Serial */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "72px", left: "265px" }}>
+      {/* Owner Serial - next to "Serial" on right side */}
+      <div className="absolute text-[11px] font-bold text-foreground" style={{ top: "88px", left: "270px" }}>
         {data.ownerSerial}
       </div>
       
-      {/* Engine Number */}
-      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "95px", left: "120px" }}>
+      {/* Engine Number - below "Engine / Motor Number" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "118px", left: "68px" }}>
         {data.engineNumber}
       </div>
       
-      {/* Owner Name */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "118px", left: "70px" }}>
+      {/* Owner Name - below "Owner Name" label */}
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "145px", left: "68px" }}>
         {data.ownerName}
       </div>
       
-      {/* Fuel */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "138px", left: "30px" }}>
+      {/* Fuel - below "Fuel" label on the left */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "168px", left: "8px" }}>
         {data.fuel}
       </div>
       
-      {/* Son/Daughter/Wife of */}
-      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "150px", left: "70px", maxWidth: "180px" }}>
+      {/* Son/Daughter/Wife of - right side of that row */}
+      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "162px", left: "68px", maxWidth: "170px" }}>
         {data.sonDaughterWifeOf}
       </div>
       
-      {/* Emission Norms */}
-      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "168px", left: "65px" }}>
+      {/* Emission Norms - below "Emission Norms" label */}
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "188px", left: "8px" }}>
         {data.emissionNorms}
       </div>
       
-      {/* Address */}
-      <div className="absolute text-[7px] font-semibold text-foreground leading-tight" style={{ top: "180px", left: "50px", maxWidth: "220px" }}>
+      {/* Address - below "Address" label */}
+      <div className="absolute text-[7px] font-semibold text-foreground leading-tight" style={{ top: "188px", left: "68px", maxWidth: "200px" }}>
         {data.address}
       </div>
       
-      {/* Card Issue Date */}
-      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "100px", right: "8px", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+      {/* Card Issue Date - vertical text on right edge */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "75px", right: "5px", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
         {data.cardIssueDate}
       </div>
     </div>
