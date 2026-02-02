@@ -53,7 +53,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Fuel - below "Fuel" label on the left */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "146px", left: "6px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "140px", left: "6px" }}>
         {data.fuel}
       </div>
       
