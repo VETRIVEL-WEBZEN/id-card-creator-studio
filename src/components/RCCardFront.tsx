@@ -58,7 +58,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Son/Daughter/Wife of - same row as fuel, next to label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "148px", left: "92px", maxWidth: "180px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "150px", left: "92px", maxWidth: "180px" }}>
         {data.sonDaughterWifeOf}
       </div>
       
@@ -68,7 +68,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Address - below "Address" label */}
-      <div className="absolute text-[8px] font-semibold text-foreground leading-tight" style={{ top: "195px", left: "90px", maxWidth: "220px" }}>
+      <div className="absolute text-[8px] font-semibold text-foreground leading-tight" style={{ top: "174px", left: "92px", maxWidth: "220px" }}>
         {data.address}
       </div>
 
