@@ -17,68 +17,68 @@ const RCCardBack = ({ data }: RCCardBackProps) => {
         backgroundPosition: "center",
       }}
     >
-      {/* Vehicle Class */}
-      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "12px", left: "180px" }}>
+      {/* Vehicle Class - after "Vehicle Class:" label at top */}
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "18px", left: "150px" }}>
         {data.vehicleClass}
       </div>
       
-      {/* Regn. Number */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "38px", left: "15px" }}>
+      {/* Regn. Number - below "Regn. Number" label on left */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "52px", left: "8px" }}>
         {data.regnNo}
       </div>
       
-      {/* Maker's Name */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "38px", left: "130px" }}>
+      {/* Maker's Name - below "Maker's Name" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "52px", left: "135px" }}>
         {data.makersName}
       </div>
       
-      {/* Model Name */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "55px", left: "130px" }}>
+      {/* Model Name - below "Model Name" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "72px", left: "135px" }}>
         {data.modelName}
       </div>
       
-      {/* Color */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "72px", left: "130px" }}>
+      {/* Color - below "Color" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "92px", left: "135px" }}>
         {data.color}
       </div>
       
-      {/* Body Type */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "88px", left: "130px" }}>
+      {/* Body Type - below "Body Type" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "112px", left: "135px" }}>
         {data.bodyType}
       </div>
       
-      {/* Seating Capacity */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "105px", left: "130px" }}>
+      {/* Seating Capacity - below "Seating (in all) Capacity" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "132px", left: "135px" }}>
         {data.seatingCapacity}
       </div>
       
-      {/* Month - Year of Mfg */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "122px", left: "15px" }}>
+      {/* Month - Year of Mfg - below label on left side */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "155px", left: "8px" }}>
         {data.monthYearOfMfg}
       </div>
       
-      {/* Unladen Weight */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "122px", left: "130px" }}>
+      {/* Unladen Weight - below "Unladen Weight (Kg)" label */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "155px", left: "135px" }}>
         {data.unladenWeight}
       </div>
       
-      {/* No of Cylinders */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "148px", left: "15px" }}>
+      {/* No of Cylinders - after "No of Cylinders :" label at bottom left */}
+      <div className="absolute text-[9px] font-bold text-foreground" style={{ top: "175px", left: "75px" }}>
         {data.noOfCylinders}
       </div>
       
-      {/* Cubic Cap / Horse Power / Wheel Base */}
-      <div className="absolute text-[8px] font-semibold text-foreground" style={{ top: "140px", left: "130px", maxWidth: "180px" }}>
+      {/* Cubic Cap / Horse Power / Wheel Base - in the middle section */}
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "175px", left: "135px" }}>
         {data.cubicCapHorsePower}
       </div>
       
-      {/* Financier */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "165px", left: "60px" }}>
+      {/* Financier - below "Financier" label at bottom */}
+      <div className="absolute text-[8px] font-bold text-foreground text-center" style={{ top: "192px", left: "8px", maxWidth: "150px" }}>
         {data.financier}
       </div>
       
-      {/* Registration Authority */}
-      <div className="absolute text-[9px] font-semibold text-foreground" style={{ top: "165px", left: "200px" }}>
+      {/* Registration Authority - below "Registration Authority" label */}
+      <div className="absolute text-[8px] font-bold text-foreground text-center" style={{ top: "192px", left: "200px", maxWidth: "120px" }}>
         {data.registrationAuthority}
       </div>
     </div>
