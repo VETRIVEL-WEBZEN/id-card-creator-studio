@@ -53,17 +53,17 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Fuel - below "Fuel" label on the left */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "140px", left: "6px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "140px", left: "7px" }}>
         {data.fuel}
       </div>
       
       {/* Son/Daughter/Wife of - same row as fuel, next to label */}
-      <div className="absolute text-[10px] font-semibold text-foreground" style={{ top: "147px", left: "92px", maxWidth: "180px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "148px", left: "92px", maxWidth: "180px" }}>
         {data.sonDaughterWifeOf}
       </div>
       
       {/* Emission Norms - below "Emission Norms" label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "164px", left: "6px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "164px", left: "7px" }}>
         {data.emissionNorms}
       </div>
       
