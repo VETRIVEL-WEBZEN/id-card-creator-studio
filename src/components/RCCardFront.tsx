@@ -18,7 +18,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       }}
     >
       {/* Regn. No - below "Regn. No" label */}
-      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "50px", left: "90px" }}>
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "50px", left: "92px" }}>
         {data.regnNo}
       </div>
       
@@ -38,7 +38,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Owner Serial - next to "Serial" on right side */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "92px", left: "272px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "84px", left: "272px" }}>
         {data.ownerSerial}
       </div>
       
