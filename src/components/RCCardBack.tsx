@@ -18,7 +18,7 @@ const RCCardBack = ({ data }: RCCardBackProps) => {
       }}
     >
       {/* Vehicle Class - after "Vehicle Class:" label at top */}
-      <div className="absolute text-[11px] font-bold text-foreground" style={{ top: "10px", left: "150px" }}>
+      <div className="absolute text-[11px] font-bold text-foreground" style={{ top: "6px", left: "150px" }}>
         {data.vehicleClass}
       </div>
       
