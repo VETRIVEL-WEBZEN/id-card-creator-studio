@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
-import { createRoot } from "react-dom/client";
 import { RCCardData } from "@/types/rcCard";
 import RCCardFront from "./RCCardFront";
 import RCCardBack from "./RCCardBack";
 import { Button } from "@/components/ui/button";
 import { Printer, RotateCcw, Copy } from "lucide-react";
+import html2canvas from "html2canvas";
 
 interface RCCardPreviewProps {
   data: RCCardData;
@@ -16,82 +16,88 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
   const frontRef = useRef<HTMLDivElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = () => {
+  const handlePrint = async () => {
     if (!cardRef.current) return;
     
-    const printContent = cardRef.current.innerHTML;
-    const printWindow = window.open('', '_blank');
-    
-    if (printWindow) {
-      printWindow.document.write(`
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <title>RC Card - ${showBack ? "Back" : "Front"}</title>
-            <style>
-              @page {
-                size: 85.6mm 54mm;
-                margin: 0;
-              }
-              body {
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-              * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-              }
-            </style>
-            <link rel="stylesheet" href="${window.location.origin}/src/index.css">
-          </head>
-          <body>${printContent}</body>
-        </html>
-      `);
-      printWindow.document.close();
-      printWindow.focus();
-      setTimeout(() => {
-        printWindow.print();
-        printWindow.close();
-      }, 250);
+    try {
+      const canvas = await html2canvas(cardRef.current, {
+        scale: 4,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+      });
+      
+      const imgData = canvas.toDataURL("image/png", 1.0);
+      const printWindow = window.open('', '_blank');
+      
+      if (printWindow) {
+        printWindow.document.write(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>RC Card - ${showBack ? "Back" : "Front"}</title>
+              <style>
+                @page {
+                  size: 85.6mm 54mm;
+                  margin: 0;
+                }
+                body {
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+                img {
+                  width: 85.6mm;
+                  height: 54mm;
+                  object-fit: contain;
+                }
+                * {
+                  -webkit-print-color-adjust: exact !important;
+                  print-color-adjust: exact !important;
+                }
+              </style>
+            </head>
+            <body>
+              <img src="${imgData}" alt="RC Card" />
+            </body>
+          </html>
+        `);
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(() => {
+          printWindow.print();
+          printWindow.close();
+        }, 250);
+      }
+    } catch (error) {
+      console.error("Error generating print:", error);
     }
   };
 
-  const handlePrintBoth = () => {
-    const printWindow = window.open('', '_blank');
+  const handlePrintBoth = async () => {
+    if (!frontRef.current || !backRef.current) return;
     
-    if (printWindow) {
-      // Create a container for React to render into
-      const container = document.createElement('div');
-      container.id = 'print-container';
+    try {
+      const [frontCanvas, backCanvas] = await Promise.all([
+        html2canvas(frontRef.current, {
+          scale: 4,
+          useCORS: true,
+          backgroundColor: "#ffffff",
+        }),
+        html2canvas(backRef.current, {
+          scale: 4,
+          useCORS: true,
+          backgroundColor: "#ffffff",
+        }),
+      ]);
       
-      // Render both cards
-      const frontContainer = document.createElement('div');
-      frontContainer.className = 'card-page';
-      const backContainer = document.createElement('div');
-      backContainer.className = 'card-page';
+      const frontImg = frontCanvas.toDataURL("image/png", 1.0);
+      const backImg = backCanvas.toDataURL("image/png", 1.0);
       
-      container.appendChild(frontContainer);
-      container.appendChild(backContainer);
+      const printWindow = window.open('', '_blank');
       
-      // Use createRoot to render React components
-      const frontRoot = createRoot(frontContainer);
-      const backRoot = createRoot(backContainer);
-      
-      frontRoot.render(<RCCardFront data={data} />);
-      backRoot.render(<RCCardBack data={data} />);
-      
-      // Wait for render then print
-      setTimeout(() => {
-        const frontHTML = frontContainer.innerHTML;
-        const backHTML = backContainer.innerHTML;
-        
-        // Cleanup
-        frontRoot.unmount();
-        backRoot.unmount();
-        
+      if (printWindow) {
         printWindow.document.write(`
           <!DOCTYPE html>
           <html>
@@ -105,8 +111,6 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
                 @media print {
                   .card-page {
                     page-break-after: always;
-                    width: 85.6mm;
-                    height: 54mm;
                   }
                   .card-page:last-child {
                     page-break-after: auto;
@@ -123,16 +127,20 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
                   justify-content: center;
                   align-items: center;
                 }
+                img {
+                  width: 85.6mm;
+                  height: 54mm;
+                  object-fit: contain;
+                }
                 * {
                   -webkit-print-color-adjust: exact !important;
                   print-color-adjust: exact !important;
                 }
               </style>
-              <link rel="stylesheet" href="${window.location.origin}/src/index.css">
             </head>
             <body>
-              <div class="card-page">${frontHTML}</div>
-              <div class="card-page">${backHTML}</div>
+              <div class="card-page"><img src="${frontImg}" alt="RC Card Front" /></div>
+              <div class="card-page"><img src="${backImg}" alt="RC Card Back" /></div>
             </body>
           </html>
         `);
@@ -142,7 +150,9 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
           printWindow.print();
           printWindow.close();
         }, 250);
-      }, 100);
+      }
+    } catch (error) {
+      console.error("Error generating print:", error);
     }
   };
 
@@ -188,6 +198,16 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
         <p className="text-center mt-3 text-xs text-muted-foreground">
           {showBack ? "Back Side" : "Front Side"} • 85.6 × 54 mm
         </p>
+      </div>
+      
+      {/* Hidden refs for capturing both sides */}
+      <div className="absolute -left-[9999px]">
+        <div ref={frontRef}>
+          <RCCardFront data={data} />
+        </div>
+        <div ref={backRef}>
+          <RCCardBack data={data} />
+        </div>
       </div>
     </div>
   );
