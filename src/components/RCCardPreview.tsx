@@ -20,7 +20,7 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
     
     try {
       const canvas = await html2canvas(cardRef.current, {
-        scale: 4, // High resolution for HD quality
+        scale: 20, // High resolution for HD quality
         useCORS: true,
         backgroundColor: "#ffffff",
       });
