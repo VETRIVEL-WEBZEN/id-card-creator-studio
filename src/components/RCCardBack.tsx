@@ -23,12 +23,12 @@ const RCCardBack = ({ data }: RCCardBackProps) => {
       </div>
       
       {/* Regn. Number - below "Regn. Number" label on left */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "48px", left: "5px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "24px", left: "5px" }}>
         {data.regnNo}
       </div>
       
       {/* Maker's Name - below "Maker's Name" label */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "48px", left: "128px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "24px", left: "118px" }}>
         {data.makersName}
       </div>
       
