@@ -5,6 +5,7 @@ import RCCardBack from "./RCCardBack";
 import { Button } from "@/components/ui/button";
 import { Download, RotateCcw } from "lucide-react";
 import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 interface RCCardPreviewProps {
   data: RCCardData;
@@ -19,17 +20,23 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
     
     try {
       const canvas = await html2canvas(cardRef.current, {
-        scale: 0,
+        scale: 4, // High resolution for HD quality
         useCORS: true,
-        backgroundColor: null,
+        backgroundColor: "#ffffff",
       });
       
-      const link = document.createElement("a");
-      link.download = `rc-card-${showBack ? "back" : "front"}.png`;
-      link.href = canvas.toDataURL("image/png");
-      link.click();
+      // RC card dimensions: 85.6 × 54 mm
+      const pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "mm",
+        format: [85.6, 54],
+      });
+      
+      const imgData = canvas.toDataURL("image/png", 1.0);
+      pdf.addImage(imgData, "PNG", 0, 0, 85.6, 54);
+      pdf.save(`rc-card-${showBack ? "back" : "front"}.pdf`);
     } catch (error) {
-      console.error("Error generating image:", error);
+      console.error("Error generating PDF:", error);
     }
   };
 
