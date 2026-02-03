@@ -3,9 +3,7 @@ import { RCCardData } from "@/types/rcCard";
 import RCCardFront from "./RCCardFront";
 import RCCardBack from "./RCCardBack";
 import { Button } from "@/components/ui/button";
-import { Download, RotateCcw } from "lucide-react";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+import { Printer, RotateCcw } from "lucide-react";
 
 interface RCCardPreviewProps {
   data: RCCardData;
@@ -15,28 +13,46 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
   const [showBack, setShowBack] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const handleDownload = async () => {
+  const handlePrint = () => {
     if (!cardRef.current) return;
     
-    try {
-      const canvas = await html2canvas(cardRef.current, {
-        scale: 20, // High resolution for HD quality
-        useCORS: true,
-        backgroundColor: "#ffffff",
-      });
-      
-      // RC card dimensions: 85.6 × 54 mm
-      const pdf = new jsPDF({
-        orientation: "landscape",
-        unit: "mm",
-        format: [85.6, 54],
-      });
-      
-      const imgData = canvas.toDataURL("image/png", 1.0);
-      pdf.addImage(imgData, "PNG", 0, 0, 85.6, 54);
-      pdf.save(`rc-card-${showBack ? "back" : "front"}.pdf`);
-    } catch (error) {
-      console.error("Error generating PDF:", error);
+    const printContent = cardRef.current.innerHTML;
+    const printWindow = window.open('', '_blank');
+    
+    if (printWindow) {
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>RC Card - ${showBack ? "Back" : "Front"}</title>
+            <style>
+              @page {
+                size: 85.6mm 54mm;
+                margin: 0;
+              }
+              body {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+              * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+            </style>
+            <link rel="stylesheet" href="${window.location.origin}/src/index.css">
+          </head>
+          <body>${printContent}</body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.focus();
+      setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+      }, 250);
     }
   };
 
@@ -54,11 +70,11 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
         </Button>
         <Button
           size="sm"
-          onClick={handleDownload}
+          onClick={handlePrint}
           className="gap-2"
         >
-          <Download className="h-4 w-4" />
-          Download
+          <Printer className="h-4 w-4" />
+          Print
         </Button>
       </div>
       
