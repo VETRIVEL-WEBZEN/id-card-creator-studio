@@ -73,7 +73,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
 
       {/* Card Issue Date - vertical text on right edge */}
-      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "58px", right: "3px", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+      <div className="absolute text-[8px] font-bold text-foreground" style={{ top: "66px", right: "2px", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
         {data.cardIssueDate}
       </div>
     </div>
