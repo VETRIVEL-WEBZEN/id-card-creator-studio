@@ -19,7 +19,7 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
     
     try {
       const canvas = await html2canvas(cardRef.current, {
-        scale: 3,
+        scale: 0,
         useCORS: true,
         backgroundColor: null,
       });
@@ -58,7 +58,7 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
       <div className="relative">
         <div 
           ref={cardRef}
-          className="shadow-xl rounded-lg overflow-hidden border border-border"
+          className="shadow-xl overflow-hidden border border-border"
         >
           {showBack ? <RCCardBack data={data} /> : <RCCardFront data={data} />}
         </div>
