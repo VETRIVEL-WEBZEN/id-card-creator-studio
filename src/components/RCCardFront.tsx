@@ -38,7 +38,7 @@ const RCCardFront = ({ data }: RCCardFrontProps) => {
       </div>
       
       {/* Owner Serial - next to "Serial" on right side */}
-      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "74px", left: "282px" }}>
+      <div className="absolute text-[10px] font-bold text-foreground" style={{ top: "70px", left: "292px" }}>
         {data.ownerSerial}
       </div>
       
