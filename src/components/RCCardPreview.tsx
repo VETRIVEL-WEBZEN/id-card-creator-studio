@@ -21,7 +21,7 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
     
     try {
       const canvas = await html2canvas(cardRef.current, {
-        scale: 4,
+        scale: 20,
         useCORS: true,
         backgroundColor: "#ffffff",
       });
@@ -81,12 +81,12 @@ const RCCardPreview = ({ data }: RCCardPreviewProps) => {
     try {
       const [frontCanvas, backCanvas] = await Promise.all([
         html2canvas(frontRef.current, {
-          scale: 4,
+          scale: 20,
           useCORS: true,
           backgroundColor: "#ffffff",
         }),
         html2canvas(backRef.current, {
-          scale: 4,
+          scale: 20,
           useCORS: true,
           backgroundColor: "#ffffff",
         }),
